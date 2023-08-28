@@ -131,8 +131,11 @@
 
         public function entretien()
         {
-            $this->setEtat(false);
+            $this->setEtat(true);
+            echo "l'enclos a été nettoyé <br />";
         }
+
+        abstract public function getType();
 
         public function hydrate(array $datas)
         {

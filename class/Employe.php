@@ -85,10 +85,20 @@
                 $this->setNom($datas["nom"]);
             } 
         }
-
+        
         public function examinerEnclos(Enclos $enclos)
         {
-            $this->getNom()."examine";
+            echo "examen de l'enclos <br />";
+            echo "Type d'enclos: " . $enclos->getType() . "<br />";
+            echo "nombre d'animaux ". $enclos->getPopulation() . "<br />";
+            echo "longueur ". $enclos->getLargeur() . "<br />";
+            echo "largeur ". $enclos->getLongueur() . "<br />";
+
+            echo "Voulez-vous nettoyer cet enclos ? (oui/non) ";
+        $reponse = strtolower(trim(fgets(fopen('php://stdin', 'r'))));
+        if ($reponse === "oui") {
+            $enclos->entretien();
         }
+       }
 
     }

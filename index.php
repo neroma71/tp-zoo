@@ -32,10 +32,10 @@
 
 
     $voliere = new Voliere($voliereData);
-    $voliere->addAnimals($oiseaux);
+   
 
-    var_dump($voliere, $voliere->hauteur());
-    var_dump($employe);
+   
+   echo $employe->examinerEnclos($voliere);
 
 ?>
 <!DOCTYPE html>
