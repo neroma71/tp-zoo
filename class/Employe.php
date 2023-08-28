@@ -95,6 +95,7 @@
             echo "largeur ". $enclos->getLongueur() . "<br />";
 
             echo "Voulez-vous nettoyer cet enclos ? (oui/non) ";
+        //version pc : $reponse = readline("Voulez-vous nettoyer cet enclos ? (oui/non) "); 
         $reponse = strtolower(trim(fgets(fopen('php://stdin', 'r'))));
         if ($reponse === "oui") {
             $enclos->entretien();
