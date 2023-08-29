@@ -2,7 +2,6 @@
     abstract class Animale
     {
         protected int $poids;
-        protected int $taille;
         protected string $nom;
         protected int $age;
         protected bool $faim;
@@ -11,7 +10,6 @@
 
         public function __construct(array $datas)
         {
-                
             $this->hydrate($datas);
         }
 
@@ -116,26 +114,6 @@
         }
 
         /**
-         * Get the value of taille
-         */ 
-        public function getTaille()
-        {
-                return $this->taille;
-        }
-
-        /**
-         * Set the value of taille
-         *
-         * @return  self
-         */ 
-        public function setTaille($taille)
-        {
-                $this->taille = $taille;
-
-                return $this;
-        }
-
-        /**
          * Get the value of poids
          */ 
         public function getPoids()
@@ -157,17 +135,23 @@
 
         public function reveil()
         {
-              $this->setDormir(false); 
+                $sleep = $this->getDormir();
+                $sleep = rand(0,1);
+                $this->setDormir($sleep); 
         }
 
         public function manger()
         {
-              $this->setFaim(false); 
+             $hungry = $this->getFaim();
+             $hungry = rand(0,1);
+             $this->setFaim($hungry); 
         }
         
         public function soins()
         {
-              $this->setMalade(false); 
+                $sick = $this->getMalade();
+                $sick = rand(0,1);
+                $this->setMalade($sick); 
         }
 
         public function hydrate(array $datas)
@@ -175,10 +159,6 @@
             if(isset($datas["poids"]))
             {
                 $this->setPoids($datas["poids"]);
-            }
-            if(isset($datas["taille"]))
-            {
-                $this->setTaille($datas["taille"]);
             }
             if(isset($datas["nom"]))
             {

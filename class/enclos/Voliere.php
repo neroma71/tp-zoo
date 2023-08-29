@@ -9,8 +9,8 @@
          {
             return 20;
          }
-         public function type()
+         public function getType()
          {
-            return 'Oiseaux';
+            return 'Volière';
          }
  }

@@ -86,9 +86,76 @@
             } 
         }
 
-        public function examinerEnclos(Enclos $enclos)
+        public function examinerEnclos(Enclos $enclos, Animale $animale)
         {
-            $this->getNom()."examine";
+            echo "<h3>examen de l'enclos</h3>";
+            echo "type d'enclos : ".$enclos->getType()."<br />";
+            echo "nombre d'animaux ". $enclos->getPopulation(). "<br />"; 
+            echo "largeur de l'enclos ". $enclos->getLargeur()."<br />";
+            echo "longeur de l'enclos ". $enclos->getLongueur()."<br />";
+           
+            $enclos->entretien();
+            if ($enclos->getEtat() == 0) {
+                echo "L'enclos est sale.<br />";
+            } else 
+            {
+                echo "l'enclos est propre <br />";
+            }
+          
+            $animale->manger();
+            if($animale->getFaim() == 0)
+            {
+               echo "l'animale à faim <br />";
+            }
+            else
+            {
+                echo "l'animale à mangé<br />";
+            }
+
+            $animale->soins();
+            if($animale->getMalade() == 0)
+            {
+               echo "l'animale est malade<br />";
+            }
+            else
+            {
+                echo "l'animale est soigné<br />";
+            }
+        }
+        //----//
+        public function nettoyer(Enclos $enclos)
+        {  
+            if($enclos->getEtat() == 0) {
+            echo $this->getNom()." Nettoye de l'enclos !";
+            } 
+             else 
+            {
+            $enclos->entretien();
+            }
         }
 
+    public function feed(Animale $animale)
+    {  
+        if($animale->getFaim() == 0)
+        {
+            echo $this->getNom()." Nourrit l'animale";
+        }
+        else
+        {
+        $animale->manger();
+        }
     }
+
+    public function cure(Animale $animale)
+    {
+    if($animale->getMalade() == 0)
+    {
+        echo $this->getNom()." Soigne l'animale";
+    }
+    else
+    {
+        echo $animale->soins();
+    }
+    }
+    
+}

@@ -1,7 +1,40 @@
 <?php
+require_once("./config/autoload.php"); 
 
-    require_once("./config/autoload.php"); 
-
+$enclosOursData =[
+    "largeur" => 50,
+    "longueur" => 50,
+    "etat" => true,
+    "population" => 6
+];
+$enclosTigreData =[
+    "largeur" => 50,
+    "longueur" => 50,
+    "etat" => true,
+    "population" => 6
+];
+$aquariumData =[
+    "largeur" => 50,
+    "longueur" => 50,
+    "etat" => true,
+    "profondeur" => 10,
+    "population" => 6
+];
+$voliereData =[
+    "largeur" => 50,
+    "longueur" => 50,
+    "etat" => true,
+    "phauteur" => 10,
+    "population" => 6
+];
+    $listeDesEnclos = [
+        new EnclosOurs($enclosOursData),
+        new EnclosTigre($enclosTigreData),
+        new Aquarium($aquariumData),
+        new Voliere($voliereData),
+    ];
+    $zoo = new Zoo($listeDesEnclos);
+/*
     $oiseauxData = [
         "poids" => 25,
         "taille" => 2,
@@ -32,11 +65,16 @@
 
 
     $voliere = new Voliere($voliereData);
-    $voliere->addAnimals($oiseaux);
+   
 
-    var_dump($voliere, $voliere->hauteur());
-    var_dump($employe);
-
+   echo $employe->examinerEnclos($voliere, $oiseaux);
+   echo "<br />";
+   echo $employe->nettoyer($voliere);
+   echo "<br />";
+   echo $employe->feed($oiseaux);
+   echo "<br />";
+   echo $employe->cure($oiseaux);
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,13 +86,14 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <section class="container">
+    <section class="container-fluid">
         <header>
             <h1>LE ZOO</h1>
         </header>
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             <div class="col-6">
                 dfsds
+
             </div>
             <div class="col-6">
                 dfsdf

@@ -9,9 +9,9 @@
          {
             return 20;
          }
-         public function type()
+         public function getType()
          {
-            return 'Poissons';
+            return 'Aquarium';
          }
          public function salinite()
          {

@@ -5,7 +5,7 @@
         {
             parent::__construct($datas);
         }
-         public function type()
+         public function getType()
          {
             return 'Tigres';
          }
