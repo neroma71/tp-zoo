@@ -131,13 +131,9 @@
 
         public function entretien()
         {
-            $state = $this->getEtat();
-            $state = rand(0,1);
-            $this->setEtat($state);
+            $this->setEtat(false);
         }
-        
         abstract public function getType();
-
         public function hydrate(array $datas)
         {
             if(isset($datas["largeur"]))

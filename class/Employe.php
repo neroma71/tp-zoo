@@ -133,6 +133,7 @@
             $enclos->entretien();
             }
         }
+      
 
     public function feed(Animale $animale)
     {  
@@ -157,5 +158,4 @@
         echo $animale->soins();
     }
     }
-    
 }
