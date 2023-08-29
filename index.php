@@ -5,13 +5,13 @@ $enclosOursData =[
     "largeur" => 50,
     "longueur" => 50,
     "etat" => true,
-    "population" => 6
+    "population" => 4
 ];
 $enclosTigreData =[
     "largeur" => 50,
     "longueur" => 50,
     "etat" => true,
-    "population" => 6
+    "population" => 3
 ];
 $aquariumData =[
     "largeur" => 50,
@@ -28,12 +28,13 @@ $voliereData =[
     "population" => 6
 ];
     $listeDesEnclos = [
-        new EnclosOurs($enclosOursData),
-        new EnclosTigre($enclosTigreData),
-        new Aquarium($aquariumData),
-        new Voliere($voliereData),
+       $enclosOurs = new EnclosOurs($enclosOursData),
+       $enclosTigre = new EnclosTigre($enclosTigreData),
+       $aquarium= new Aquarium($aquariumData),
+       $voliere = new Voliere($voliereData),
     ];
     $zoo = new Zoo($listeDesEnclos);
+
 /*
     $oiseauxData = [
         "poids" => 25,
@@ -94,19 +95,30 @@ $voliereData =[
             <h1>LE ZOO</h1>
         </header>
         <div class="row d-flex justify-content-center">
-            <div class="col-6">
-                dfsds
-
+        <a href="ours.php" class="col-6 text-center">
+            <div>
+                <?php echo "<h2>".$enclosOurs->getType()."</h2>" ?>
+                <?php echo "<h2>".$enclosOurs->getPopulation()."</h2>" ?>
             </div>
-            <div class="col-6">
-                dfsdf
+        </a>
+        <a href="tigre.php" class="col-6 text-center">
+            <div>
+                <?php echo "<h2>".$enclosTigre->getType()."</h2>" ?>
+                <?php echo "<h2>".$enclosTigre->getPopulation()."</h2>" ?>
             </div>
-            <div class="col-6">
-                sdfdsfs
+        </a>
+        <a href="aquarium.php" class="col-6 text-center">
+            <div>
+                <?php echo "<h2>".$aquarium->getType()."</h2>" ?>
+                <?php echo "<h2>".$aquarium->getPopulation()."</h2>" ?>
             </div>
-            <div class="col-6">
-                sdfsdf
+        </a>
+        <a href="voliere.php" class="col-6 text-center">
+            <div>
+                <?php echo "<h2>".$voliere->getType()."</h2>" ?>
+                <?php echo "<h2>".$voliere->getPopulation()."</h2>" ?>
             </div>
+        </a>
         </div>
     </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>   
