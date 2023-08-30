@@ -3,7 +3,7 @@
     {
       private string $profondeur;
       private string $salinite
-        public function __construct(array $datas, $profondeur)
+        public function __construct(array $datas, $profondeur, salinite)
         {
             parent::__construct($datas);
             $this->profondeur = $profondeur;
