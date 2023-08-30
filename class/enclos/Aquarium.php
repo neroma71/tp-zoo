@@ -1,11 +1,14 @@
 <?php
     class Aquarium extends Enclos
     {
-        public function __construct(array $datas)
+      private string $profondeur;
+      
+        public function __construct(array $datas, $profondeur)
         {
             parent::__construct($datas);
         }
-         public function profondeur()
+
+         public static function profondeur()
          {
             return 20;
          }

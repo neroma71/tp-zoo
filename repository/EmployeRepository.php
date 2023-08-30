@@ -1,4 +1,5 @@
 <?php
+
     class EmployeRepository
     {
         private PDO $db;
@@ -29,13 +30,38 @@
 
         public function add(Enclos $enclos)
         {
-            $req = $this->db->prepare('INSERT INTO enclos (largeur, longueur, population, getType) VALUE  (:largeur, :longueur, :population, :getType)');
+            $req = $this->db->prepare('INSERT INTO enclos ( getType, largeur, longueur, profondeur, hauteur,  population) VALUE (:getType, :largeur, :longueur, :profondeur, :hauteur, :population)');
 
             $req->execute([
+                'getType' => $enclos->getType(),
                 'largeur' => $enclos->getLargeur(),
                 'longueur' => $enclos->getLongueur(),
-                'population' => $enclos->getPopulation(),
-                'getType' => $enclos->getType(),
+                'profondeur' => $enclos::profonder(),
+                'longueur' => $enclos->getLongueur(),
+                'population' => $enclos->getPopulation()
             ]);
+            $enclos = $this->db->lastInsertId();
+            return $enclos;
+        }
+
+        public function addAnimals(Animale $animale)
+        {
+            $req = $this->db->prepare('INSERT INTO animale (getType, nom, poids, age, faim, dormir, malade, enclos_id) VALUE (:getType, :nom, :poids, :age, :faim, :dormir, :malade, :enclos_id)');
+            
+            $animale->setFaim(false);
+            $animale->setDormir(false);
+            $animale->setMalade(false);
+
+            $req->execute([
+                'getType' => $animale->getGetType(),
+                'nom' => $animale->getNom(),
+                'poids' => $animale->getPoids(),
+                'age' => $animale->getAge(),
+                'faim' => $animale->getFaim(),
+                'dormir' => $animale->getDormir(),
+                'malade' => $animale->getMalade(),
+            ]);
+            $animale = $this->db->lastInsertId();
+            return $animale;
         }
     }

@@ -2,8 +2,9 @@
     abstract class Animale
     {
         private int $id;
-        protected int $poids;
+        protected string $getType;
         protected string $nom;
+        protected int $poids;
         protected int $age;
         protected bool $faim;
         protected bool $dormir;
@@ -12,6 +13,26 @@
         public function __construct(array $datas)
         {
             $this->hydrate($datas);
+        }
+
+        /**
+         * Get the value of getType
+         */ 
+        public function getGetType()
+        {
+                return $this->getType;
+        }
+
+        /**
+         * Set the value of getType
+         *
+         * @return  self
+         */ 
+        public function setGetType($getType)
+        {
+                $this->getType = $getType;
+
+                return $this;
         }
 
         /**
@@ -180,6 +201,10 @@
             {
                 $this->setId($datas["id"]);
             }
+            if(isset($datas["getType"]))
+            {
+                $this->setGetType($datas["getType"]);
+            }
             if(isset($datas["poids"]))
             {
                 $this->setPoids($datas["poids"]);
@@ -208,4 +233,5 @@
         // methodes de base des mammifère
         abstract public function son();
         abstract public function bouger();
+
     }
