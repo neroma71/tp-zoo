@@ -2,22 +2,24 @@
     class Aquarium extends Enclos
     {
       private string $profondeur;
-      
+      private string $salinite
         public function __construct(array $datas, $profondeur)
         {
             parent::__construct($datas);
+            $this->profondeur = $profondeur;
+            $this->salinite = $salinite;
         }
 
-         public static function profondeur()
+         public function getProfondeur()
          {
-            return 20;
+            return $this->profondeur;
          }
          public function getType()
          {
             return 'Aquarium';
          }
-         public function salinite()
+         public function getSalinite()
          {
-            return 10;
+            return $this->salinite
          }
  }
