@@ -16,8 +16,8 @@ if(isset($_POST['getType']) && !empty($_POST['getType']) && isset($_POST['largeu
         'getType' => $getType,
         'largeur' => $largeur,
         'longueur' => $longueur,
-        'profondeur' => $profondeur,
-        'ahuteur' => $hauteur,
+        'profondeur' => $_POST['profondeur'],
+        'hauteur' => $_POST['hauteur'],
         'population' => $population,
     ];
 
