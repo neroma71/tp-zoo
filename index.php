@@ -1,4 +1,5 @@
 <?php
+require_once("./config/connexion.php"); 
 require_once("./config/autoload.php"); 
 
 $enclosOursData =[
@@ -31,7 +32,7 @@ $voliereData =[
        $enclosOurs = new EnclosOurs($enclosOursData),
        $enclosTigre = new EnclosTigre($enclosTigreData),
        $aquarium= new Aquarium($aquariumData),
-       $voliere = new Voliere($voliereData),
+       $voliere = new Voliere($voliereData)
     ];
     $zoo = new Zoo($listeDesEnclos);
 
@@ -93,6 +94,7 @@ $voliereData =[
     <section class="container-fluid">
         <header>
             <h1>LE ZOO</h1>
+            <a href="employe.php">commencer à jouer</a>
         </header>
         <div class="row d-flex justify-content-center">
         <a href="ours.php" class="col-6 text-center">

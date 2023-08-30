@@ -1,8 +1,9 @@
 <?php
     abstract class Enclos
     {
-        protected int $largeur;
-        protected int $longueur;
+        private int $id;
+        protected string $largeur;
+        protected string $longueur;
         protected bool $etat;
         protected int $population;
         protected int $count;
@@ -14,6 +15,25 @@
             $this->hydrate($datas);
         }
 
+            /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
+        }
          /**
          * Get the value of animals
          */ 
@@ -131,11 +151,19 @@
 
         public function entretien()
         {
-            $this->setEtat(false);
+                    $state = $this->getEtat();
+                    $state = rand(0,1);
+                    $this->setEtat($state); 
         }
+
         abstract public function getType();
+        
         public function hydrate(array $datas)
         {
+            if(isset($datas["id"]))
+            {
+                $this->setId($datas["id"]);
+            }
             if(isset($datas["largeur"]))
             {
                 $this->setLargeur($datas["largeur"]);
@@ -153,5 +181,4 @@
                 $this->setPopulation($datas["population"]);
             }
         }
-       
     }

@@ -1,6 +1,7 @@
 <?php
     abstract class Animale
     {
+        private int $id;
         protected int $poids;
         protected string $nom;
         protected int $age;
@@ -13,6 +14,25 @@
             $this->hydrate($datas);
         }
 
+        /**
+         * Get the value of id
+         */ 
+        public function getId()
+        {
+                return $this->id;
+        }
+
+        /**
+         * Set the value of id
+         *
+         * @return  self
+         */ 
+        public function setId($id)
+        {
+                $this->id = $id;
+
+                return $this;
+        }
         /**
          * Get the value of malade
          */ 
@@ -156,6 +176,10 @@
 
         public function hydrate(array $datas)
         {
+            if(isset($datas["id"]))
+            {
+                $this->setId($datas["id"]);
+            }
             if(isset($datas["poids"]))
             {
                 $this->setPoids($datas["poids"]);
@@ -184,5 +208,4 @@
         // methodes de base des mammifère
         abstract public function son();
         abstract public function bouger();
-       
     }

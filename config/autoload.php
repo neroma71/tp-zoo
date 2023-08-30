@@ -13,25 +13,25 @@ ini_set("error_append_string ", "</pre>");
 // Autoload logic
 function chargerClasse($classname)
 {
-$directories = ['animaux', 'enclos'];
-    foreach($directories as $dir){
-        $filepath = __DIR__."/../class/$dir/$classname.php";
-        if(file_exists($filepath)){
-            require $filepath; return; 
-        }
-    }
-    $dirrepo = ['repository'];
-    foreach ($dirrepo as $rep) {
-        $filepath = __DIR__ . "/../class/$rep/$classname.php"; // Ajout de $classname.php
+    $directories = ['animaux', 'enclos'];
+
+    foreach ($directories as $dir) {
+        $filepath = __DIR__ . "/../class/$dir/$classname.php";
         if (file_exists($filepath)) {
             require $filepath;
             return;
         }
-        require __DIR__.'/../class/' . $classname . '.php';
     }
 
+    $filepath = __DIR__ . "/../repository/$classname.php";
+    if (file_exists($filepath)) {
+        require $filepath;
+        return;
+    }
 
+    require __DIR__ . '/../class/' . $classname . '.php';
 }
+
 spl_autoload_register('chargerClasse');
 // Session
 session_start();
