@@ -9,16 +9,10 @@
             $this->hauteur = $hauteur;
             parent::__construct($datas);
         }
-         public function hauteur()
-         {
-            return 20;
-         }
          public function getType()
          {
             return 'Volière';
          }
-       
-
         /**
          * Get the value of hauteur
          */ 
