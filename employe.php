@@ -6,21 +6,20 @@
     $manager = new EmployeRepository($bdd);
     $manager2 = new EmployeRepository($bdd);
 
-if(isset($_POST['getType']) && !empty($_POST['getType']) && isset($_POST['largeur']) && !empty($_POST['largeur']) && isset($_POST['longueur']) && !empty($_POST['longueur']) && isset($_POST['profondeur']) && isset($_post['hauteur']) && isset($_POST['population']) && !empty($_POST['population'])){
-    $getType = $_POST['getType'];
-    $largeur = $_POST['largeur'];
-    $longueur = $_POST['longueur'];
-    $population = $_POST['population'];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if(isset($_POST['getType']) && !empty($_POST['getType']) && isset($_POST['largeur']) && !empty($_POST['largeur']) && isset($_POST['longueur']) && !empty($_POST['longueur']) && isset($_POST['profondeur']) && isset($_POST['hauteur']) && isset($_POST['salinite'])) {
+        $getType = $_POST['getType'];
+        $largeur = $_POST['largeur'];
+        $longueur = $_POST['longueur'];
 
-    $enclosData = [
-        'getType' => $getType,
-        'largeur' => $largeur,
-        'longueur' => $longueur,
-        'profondeur' => $_POST['profondeur'],
-        'hauteur' => $_POST['hauteur'],
-        'salinite' => $_POST['salinite'],
-        'population' => $population,
-    ];
+        $enclosData = [
+            'getType' => $getType,
+            'largeur' => $largeur,
+            'longueur' => $longueur,
+            'profondeur' => $_POST['profondeur'],
+            'hauteur' => $_POST['hauteur'],
+            'salinite' => $_POST['salinite']
+        ];
 
     $enclos = null;
 
@@ -84,22 +83,22 @@ if(isset($_POST['getType']) && !empty($_POST['getType']) && isset($_POST['nom'])
 </head>
 <body>
 <form method="post" action="">
-            <label><h3>définir un enclos</h3></label><br />
-                <input type="text" name="largeur" placeholder="rentrer une largeur">
-                <input type="text" name="longueur" placeholder="rentrer une longueur">
-                <input type="text" name="profonder" placeholder="rentrer une profondeur">
-                <input type="text" name="hauteur" placeholder="rentrer une hauteur">
-                <input type="text" name="salinite" placeholder="rentrer une salinite">
-                <input type="number" name="population" placeholder="rentrer le nombre d'animaux">
-                <select name="getType">
-                    <option value="">choisir le type d'animale</option>
-                    <option value="ours">ours</option>
-                    <option value="tigre">tigre</option>
-                    <option value="aquarium">aquarium</option>
-                    <option value="voliere">voliere</option>
-                </select>
-                <input type="submit" value="envoyer">
-            </form>
+    <label><h3>définir un enclos</h3></label><br />
+    <input type="text" name="largeur" placeholder="rentrer une largeur">
+    <input type="text" name="longueur" placeholder="rentrer une longueur">
+    <input type="text" name="profondeur" placeholder="rentrer une profondeur">
+    <input type="text" name="hauteur" placeholder="rentrer une hauteur">
+    <input type="text" name="salinite" placeholder="rentrer une salinité">
+    <select name="getType">
+        <option value="">choisir le type d'enclos</option>
+        <option value="ours">ours</option>
+        <option value="tigre">tigre</option>
+        <option value="aquarium">aquarium</option>
+        <option value="voliere">voliere</option>
+    </select>
+    <input type="submit" value="envoyer">
+</form>
+
             <!--  //////////  -->
             <form method="post" action="">
             <label><h3>définir un animale</h3></label><br />
