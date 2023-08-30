@@ -18,6 +18,7 @@ if(isset($_POST['getType']) && !empty($_POST['getType']) && isset($_POST['largeu
         'longueur' => $longueur,
         'profondeur' => $_POST['profondeur'],
         'hauteur' => $_POST['hauteur'],
+        'salinite' => $_POST['salinite'],
         'population' => $population,
     ];
 
@@ -88,6 +89,7 @@ if(isset($_POST['getType']) && !empty($_POST['getType']) && isset($_POST['nom'])
                 <input type="text" name="longueur" placeholder="rentrer une longueur">
                 <input type="text" name="profonder" placeholder="rentrer une profondeur">
                 <input type="text" name="hauteur" placeholder="rentrer une hauteur">
+                <input type="text" name="salinite" placeholder="rentrer une salinite">
                 <input type="number" name="population" placeholder="rentrer le nombre d'animaux">
                 <select name="getType">
                     <option value="">choisir le type d'animale</option>
