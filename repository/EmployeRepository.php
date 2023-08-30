@@ -30,14 +30,16 @@
 
         public function add(Enclos $enclos)
         {
-            $req = $this->db->prepare('INSERT INTO enclos ( getType, largeur, longueur, profondeur, hauteur,  population) VALUE (:getType, :largeur, :longueur, :profondeur, :hauteur, :population)');
+            $req = $this->db->prepare('INSERT INTO enclos ( getType, largeur, longueur, profondeur, hauteur, salinite, population) VALUE (:getType, :largeur, :longueur, :profondeur, :hauteur, :salinite :population)');
 
             $req->execute([
                 'getType' => $enclos->getType(),
                 'largeur' => $enclos->getLargeur(),
                 'longueur' => $enclos->getLongueur(),
-                'profondeur' => $enclos::profonder(),
+                'profondeur' => $enclos->getProfonder(),
+                'hauteur' => $enclos->getHauteur(),
                 'longueur' => $enclos->getLongueur(),
+                'salinite' => $enclos->getSalinite(),
                 'population' => $enclos->getPopulation()
             ]);
             $enclos = $this->db->lastInsertId();
