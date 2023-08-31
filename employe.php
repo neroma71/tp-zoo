@@ -36,6 +36,17 @@ if(isset($_POST['getType'])
     } else {
         // Gérer le cas où la catégorie n'est pas reconnue
     }
+    // insertion des images
+    if (isset($_FILES['images']) && $_FILES['images']['error'] === UPLOAD_ERR_OK) {
+        $uploadDir = 'uploads/';
+        $uploadFile = $uploadDir . basename($_FILES['images']['name']);
+
+        if (move_uploaded_file($_FILES['images']['tmp_name'], $uploadFile)) {
+            $enclos->setImages($uploadFile);
+        } else {
+            echo "Erreur lors du téléchargement de l'image.";
+        }
+    }
 
     if($enclos){
         $manager->add($enclos); // Utilisez $enclos ici au lieu de $getType
@@ -51,22 +62,22 @@ if(isset($_POST['getType'])
 && !empty($_POST['poids']) 
 && isset($_POST['age']) 
 && !empty($_POST['age'])
-&& isset($_POST['id_enclos']) 
-&& !empty($_POST['id_enclos'])
+&& isset($_POST['enclos_id']) 
+&& !empty($_POST['enclos_id'])
 ){
 
     $getType = $_POST['getType'];
     $nom = $_POST['nom'];
     $poids = $_POST['poids'];
     $age = $_POST['age'];
-    $id_enclos = $_POST['id_enclos'];
+    $id_enclos = $_POST['enclos_id'];
   
     $animaleData = [
         'getType' => $getType,
         'nom' => $nom,
         'poids' => $poids,
         'age' => $age,
-        'id_enclos' => $id_enclos
+        'enclos_id' => $id_enclos
     ];
 
     $animale = null;
@@ -79,26 +90,11 @@ if(isset($_POST['getType'])
         $animale = new Oiseaux($animaleData);
     }elseif ($_POST['getType'] === 'oiseaux') {
         $animales = new Poisson($animaleData);
-    }elseif ($_POST['enclos_id'] === 'enclos_id') {
-        $animales = new Poisson($animaleData);
-    } 
+    }
      else {
         // Gérer le cas où la catégorie n'est pas reconnue
     }
-
-    // insertion des images
-    if (isset($_FILES['images']) && $_FILES['images']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = 'uploads/';
-        $uploadFile = $uploadDir . basename($_FILES['images']['name']);
-
-        if (move_uploaded_file($_FILES['images']['tmp_name'], $uploadFile)) {
-            $hero->setImages($uploadFile);
-        } else {
-            echo "Erreur lors du téléchargement de l'image.";
-        }
-    }
-
-    if($animale){
+if($animale){
         $manager2->addAnimals($animale, $id_enclos); // Utilisez $enclos ici au lieu de $getType
     }
 }
