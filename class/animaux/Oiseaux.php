@@ -13,11 +13,5 @@
             public function bouger()
             {
                 return "je remue la queue";
-            }
-            public function voler()
-            {
-                return "je vole des portfeuilles au forum des halles";
-            }
-            
-            
+            } 
         }

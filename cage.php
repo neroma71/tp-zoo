@@ -39,18 +39,18 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             $animal = new Ours($animalData);
         } elseif ($animalData['getType'] === 'tigre') {
             $animal = new Tigres($animalData);
-        } elseif ($animalData['getType'] === 'oiseaux') {
-            $animal = new Oiseaux($animalData);
         } elseif ($animalData['getType'] === 'poisson') {
             $animal = new Poisson($animalData);
-        }
+        }elseif ($animalData['getType'] === 'oiseaux') {
+            $animal = new Oiseaux($animalData);
+        } 
         
         if ($animal) {
             $animal->hydrate($animalData);
             $animaux[] = $animal;
         }
-        var_dump($animauxList); 
     }
+    var_dump($animaux);
     
     $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
 

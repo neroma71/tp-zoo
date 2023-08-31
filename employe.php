@@ -87,9 +87,9 @@ if(isset($_POST['getType'])
     } elseif ($_POST['getType'] === 'tigre') {
         $animale = new Tigres($animaleData);
     }elseif ($_POST['getType'] === 'poisson') {
-        $animale = new Oiseaux($animaleData);
+        $animale = new Poisson($animaleData);
     }elseif ($_POST['getType'] === 'oiseaux') {
-        $animales = new Poisson($animaleData);
+        $animale = new Oiseaux($animaleData);
     }
      else {
         // Gérer le cas où la catégorie n'est pas reconnue

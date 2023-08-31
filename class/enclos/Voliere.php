@@ -8,7 +8,7 @@
         }
          public function getType()
          {
-            return 'Volière';
+            return 'Voliere';
          }
 
 }
