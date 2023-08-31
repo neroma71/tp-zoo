@@ -5,14 +5,35 @@
         protected string $largeur;
         protected string $longueur;
         protected bool $etat;
-        protected int $population;
         protected int $count;
         protected array $animals = [];
+        private string $images;
 
         public function __construct(array $datas)
         {
+            $this->etat = false;
             $this->count = 0;
             $this->hydrate($datas);
+        }
+
+        /**
+         * Get the value of images
+         */ 
+        public function getImages()
+        {
+                return $this->images;
+        }
+
+        /**
+         * Set the value of images
+         *
+         * @return  self
+         */ 
+        public function setImages($images)
+        {
+                $this->images = $images;
+
+                return $this;
         }
 
             /**
@@ -108,27 +129,6 @@
 
                 return $this;
         }
-
-        
-
-        /**
-         * Get the value of population
-         */ 
-        public function getPopulation()
-        {
-                return $this->population;
-        }
-
-        /**
-         * Set the value of population
-         *
-         * @return  self
-         */ 
-        public function setPopulation($population)
-        {
-                $this->population = $population;
-                return $this;
-        }
         /**
          * Get the value of etat
          */ 
@@ -175,10 +175,6 @@
             if(isset($datas["etat"]))
             {
                 $this->setEtat($datas["etat"]);
-            }
-            if(isset($datas["population"]))
-            {
-                $this->setPopulation($datas["population"]);
             }
         }
     }

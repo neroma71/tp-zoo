@@ -79,7 +79,10 @@ if(isset($_POST['getType'])
         $animale = new Oiseaux($animaleData);
     }elseif ($_POST['getType'] === 'oiseaux') {
         $animales = new Poisson($animaleData);
-    } else {
+    }elseif ($_POST['enclos_id'] === 'enclos_id') {
+        $animales = new Poisson($animaleData);
+    } 
+     else {
         // Gérer le cas où la catégorie n'est pas reconnue
     }
 
@@ -136,7 +139,7 @@ if(isset($_POST['getType'])
                     <option value="poisson">poisson</option>
                     <option value="oiseaux">oiseaux</option>
                 </select>
-                <select name="id_enclos">
+                <select name="enclos_id">
                     <option value="">choisir le type d'enclos</option>
                     <option value="1">ours</option>
                     <option value="2">tigre</option>

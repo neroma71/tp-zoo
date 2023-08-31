@@ -59,9 +59,9 @@
 {
     $req = $this->db->prepare('INSERT INTO animale (getType, nom, poids, age, faim, dormir, malade, enclos_id) VALUE (:getType, :nom, :poids, :age, :faim, :dormir, :malade, :enclos_id)');
             
-    $animale->setFaim(false);
-    $animale->setDormir(false);
-    $animale->setMalade(false);
+    $animale->setFaim(true);
+    $animale->setDormir(true);
+    $animale->setMalade(true);
 
     $req->execute([
         'getType' => $animale->getGetType(),

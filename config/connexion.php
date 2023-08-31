@@ -1,7 +1,7 @@
 <?php
 $dns = "mysql:host=localhost;dbname=zoo";
 $user = "root";
-$password = "";
+$password = "root";
 
 try {
     $bdd = new PDO ($dns,$user,$password);

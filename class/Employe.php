@@ -90,7 +90,6 @@
         {
             echo "<h3>examen de l'enclos</h3>";
             echo "type d'enclos : ".$enclos->getType()."<br />";
-            echo "nombre d'animaux ". $enclos->getPopulation(). "<br />"; 
             echo "largeur de l'enclos ". $enclos->getLargeur()."<br />";
             echo "longeur de l'enclos ". $enclos->getLongueur()."<br />";
            
