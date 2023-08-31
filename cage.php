@@ -19,7 +19,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     
     $enclosType = $enclosData['getType'];
 
-    $enclos = null;
    
     if ($enclosType === 'Aquarium') {
         $enclos = new Aquarium($enclosData);
@@ -38,11 +37,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         
         if ($animalData['getType'] === 'ours') {
             $animal = new Ours($animalData);
-        } elseif ($animalData['getType'] === 'tigres') {
+        } elseif ($animalData['getType'] === 'tigre') {
             $animal = new Tigres($animalData);
         } elseif ($animalData['getType'] === 'oiseaux') {
             $animal = new Oiseaux($animalData);
-        } elseif ($animalData['getType'] === 'poissons') {
+        } elseif ($animalData['getType'] === 'poisson') {
             $animal = new Poisson($animalData);
         }
         
@@ -50,6 +49,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             $animal->hydrate($animalData);
             $animaux[] = $animal;
         }
+        var_dump($animauxList); 
     }
     
     $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
