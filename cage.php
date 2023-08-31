@@ -44,22 +44,13 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         }elseif ($animalData['getType'] === 'oiseaux') {
             $animal = new Oiseaux($animalData);
         } 
-        
         if ($animal) {
             $animal->hydrate($animalData);
             $animaux[] = $animal;
         }
     }
-    var_dump($animaux);
+  
     
-    $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
-
-    foreach ($animaux as $animal) {
-        $nombreAnimaux = count($animaux);
-        $employe->examinerEnclos($enclos, $animal, $nombreAnimaux);
-        $employe->feed($animal);
-        $employe->cure($animal);
-    }
 }
 
 $enclosList = $manager->getAllEnclos();
@@ -87,6 +78,16 @@ $enclosList = $manager->getAllEnclos();
                 <li>Nom: <?php echo $animal->getNom(); ?>, Poids: <?php echo $animal->getPoids(); ?>, Âge: <?php echo $animal->getAge(); ?></li>
             <?php endforeach; ?>
         </ul>
+                <?php
+    $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
+
+    foreach ($animaux as $animal) {
+    $nombreAnimaux = count($animaux);
+    $employe->examinerEnclos($enclos, $animal, $nombreAnimaux);
+    $employe->feed($animal);
+    $employe->cure($animal);
+}
+?>
     <?php else : ?>
         <p>Enclos non trouvé.</p>
     <?php endif; ?>

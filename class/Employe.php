@@ -88,7 +88,7 @@
 
         public function examinerEnclos(Enclos $enclos, Animale $animale)
         {
-            echo "<h3>examen de l'enclos</h3>";
+            echo "<h3>examen de ".$animale->getNom()."</h3>";
             echo "type d'enclos : ".$enclos->getType()."<br />";
             echo "largeur de l'enclos ". $enclos->getLargeur()."<br />";
             echo "longeur de l'enclos ". $enclos->getLongueur()."<br />";

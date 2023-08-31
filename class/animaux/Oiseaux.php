@@ -10,6 +10,7 @@
             {
                 return "cuit cuit";
             }
+            
             public function bouger()
             {
                 return "je remue la queue";

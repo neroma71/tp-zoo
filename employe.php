@@ -92,10 +92,10 @@ if(isset($_POST['getType'])
         $animale = new Oiseaux($animaleData);
     }
      else {
-        // Gérer le cas où la catégorie n'est pas reconnue
+     
     }
 if($animale){
-        $manager2->addAnimals($animale, $id_enclos); // Utilisez $enclos ici au lieu de $getType
+        $manager2->addAnimals($animale, $id_enclos); 
     }
 }
 ?>
