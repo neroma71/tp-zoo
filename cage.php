@@ -7,6 +7,7 @@ require_once("./config/autoload.php");
 
 $manager = new EmployeRepository($bdd);
 
+
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $enclosId = $_GET['id'];
     
@@ -18,6 +19,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     
     $enclosType = $enclosData['getType'];
 
+    $enclos = null;
    
     if ($enclosType === 'Aquarium') {
         $enclos = new Aquarium($enclosData);
@@ -25,7 +27,10 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         $enclos = new EnclosOurs($enclosData);
     } elseif ($enclosType === 'Tigres') {
         $enclos = new EnclosTigre($enclosData);
+    }elseif ($enclosType === 'Voliere') {
+        $enclos = new Voliere($enclosData);
     }
+
     $animaux = [];
 
     foreach ($animauxList as $animalData) {
@@ -66,8 +71,10 @@ $enclosList = $manager->getAllEnclos();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails de l'enclos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
 </head>
-<body>
+<body style="background-image: url('<?php echo $enclos->getImages(); ?>'); background-position: top center; background-repeat: no-repeat; background-size: cover;">
     <?php if ($enclos) : ?>
         <h1>Détails de l'enclos</h1>
         <p>Type: <?php echo $enclos->getType(); ?></p>

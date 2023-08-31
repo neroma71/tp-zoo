@@ -172,6 +172,10 @@
             {
                 $this->setLongueur($datas["longueur"]);
             }
+            if(isset($datas["images"]))
+            {
+                $this->setImages($datas["images"]);
+            }
             if(isset($datas["etat"]))
             {
                 $this->setEtat($datas["etat"]);

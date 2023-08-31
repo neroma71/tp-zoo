@@ -1,5 +1,5 @@
 <?php
-
+/*
 $enclosOursData =[
     "largeur" => 50,
     "longueur" => 50,
@@ -34,7 +34,6 @@ $voliereData =[
     ];
     $zoo = new Zoo($listeDesEnclos);
 
-/*
     $oiseauxData = [
         "poids" => 25,
         "taille" => 2,
@@ -77,8 +76,7 @@ $voliereData =[
    echo $employe->feed($oiseaux);
    echo "<br />";
    echo $employe->cure($oiseaux);
-*/
-<?php
+
         $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
 
         foreach ($animaux as $animal) {
@@ -87,3 +85,4 @@ $voliereData =[
             $employe->cure($animal);
         }
         ?>
+        */
