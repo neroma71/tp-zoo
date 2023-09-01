@@ -13,6 +13,9 @@
         public function __construct(array $datas)
         {
             $this->hydrate($datas);
+            if (isset($data['id'])) {
+                $this->id = $data['id'];
+            }
         }
 
         /**
@@ -38,7 +41,7 @@
         /**
          * Get the value of id
          */ 
-        public function getId()
+        public function getId(): int
         {
                 return $this->id;
         }
@@ -197,9 +200,9 @@
 
         public function hydrate(array $datas)
         {
-            if(isset($datas["id"]))
+            if(isset($datas["animale-id"]))
             {
-                $this->setId($datas["id"]);
+                $this->setId($datas["animale-id"]);
             }
             if(isset($datas["getType"]))
             {

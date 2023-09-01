@@ -21,15 +21,17 @@ $enclosList = $manager->getAllEnclos();
     <section class="container-fluid">
         <header>
             <h1>LE ZOO</h1>
+        <div class="play">
             <a href="employe.php">commencer à jouer</a>
-        </header>
-        <div class="row d-flex justify-content-center">
-        <?php foreach ($enclosList as $enclos) : ?>
-             <a href="cage.php?id=<?php echo $enclos['id']; ?>" class="col-6 text-center">
-                <h2>Type: <?php echo $enclos['getType']; ?></h2>
-             </a>
-        <?php endforeach; ?>
         </div>
+        </header>
+            <div class="row d-flex justify-content-center">
+                 <?php foreach ($enclosList as $enclos) : ?>
+                     <a href="cage.php?id=<?php echo $enclos['id']; ?>" class="col-6 text-center">
+                        <h2>Type: <?php echo $enclos['getType']; ?></h2>
+                     </a>
+                <?php endforeach; ?>
+            </div>
     </section>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>   
 </body>

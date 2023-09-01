@@ -2,17 +2,11 @@
 require_once("./config/connexion.php"); 
 require_once("./config/autoload.php"); 
 
-require_once("./config/connexion.php"); 
-require_once("./config/autoload.php"); 
-
 $manager = new EmployeRepository($bdd);
 
 
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $enclosId = $_GET['id'];
-    
-    $enclosData = $manager->getEnclosById($enclosId);
-    $animauxList = $manager->getAnimauxByEnclosId($enclosId);
     
     $enclosData = $manager->getEnclosById($enclosId);
     $animauxList = $manager->getAnimauxByEnclosId($enclosId);
@@ -48,12 +42,21 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
             $animal->hydrate($animalData);
             $animaux[] = $animal;
         }
+    } 
+}
+if (isset($_GET['id']) && !empty($_GET['id'])) {
+    $animalIdToDelete = $_GET['id'];
+
+    // Ensuite, appelez votre fonction de suppression avec $animalIdToDelete
+    if ($manager->deleteAnimalById($animalIdToDelete)) {
+        echo "<p class='msg'>L'animal a été supprimé avec succès.</p>";
+    } else {
+        echo "<p class='msg'>Une erreur s'est produite lors de la suppression de l'animal.</p>";
     }
-  
-    
 }
 
 $enclosList = $manager->getAllEnclos();
+$employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
 ?>
 
 <!DOCTYPE html>
@@ -63,33 +66,51 @@ $enclosList = $manager->getAllEnclos();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Détails de l'enclos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="css/cage.css">
 </head>
 <body style="background-image: url('<?php echo $enclos->getImages(); ?>'); background-position: top center; background-repeat: no-repeat; background-size: cover;">
-    <?php if ($enclos) : ?>
-        <h1>Détails de l'enclos</h1>
-        <p>Type: <?php echo $enclos->getType(); ?></p>
-        <p>Largeur: <?php echo $enclos->getLargeur(); ?></p>
-        <p>Longueur: <?php echo $enclos->getLongueur(); ?></p>
-
-        <h2>Animaux dans cet enclos</h2>
-        <ul>
-            <?php foreach ($animaux as $animal) : ?>
-                <li>Nom: <?php echo $animal->getNom(); ?>, Poids: <?php echo $animal->getPoids(); ?>, Âge: <?php echo $animal->getAge(); ?></li>
-            <?php endforeach; ?>
-        </ul>
+    <header>
+        <h1>Détails de l'enclos</h1> 
+        <div class="retour">
+            <a href="index.php">Retour au Zoo</a>
+        </div>
+    <header> 
+        <div class="type">  
+            <?php if ($enclos) : ?>
+                 <p>Type: <?php echo $enclos->getType(); ?>
+                 Largeur: <?php echo $enclos->getLargeur(); ?>
+                Longueur: <?php echo $enclos->getLongueur(); ?>
+                nombre d'animaux dans l'enclos : <?php  echo $nombreAnimaux = count($animaux); ?>
+                </p>
+        </div>
+        <div class="presentation">
+            <h2>Animaux dans cet enclos</h2>
+            <ul>
+                <?php foreach ($animaux as $animal) : ?>
+                    <li>Nom : <?php echo $animal->getNom(); ?>, Poids : <?php echo $animal->getPoids(); ?>, Âge : <?php echo $animal->getAge(); ?>ans</li>
+                    <a href="cage.php?id=<?php echo $animal->getId(); ?>">supprimer</a>
+                 <?php endforeach; ?>
+            </ul>
+            </div>
+            <div class="btn">Play</div>
+        <div class="animaux">
                 <?php
-    $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
-
-    foreach ($animaux as $animal) {
-    $nombreAnimaux = count($animaux);
-    $employe->examinerEnclos($enclos, $animal, $nombreAnimaux);
-    $employe->feed($animal);
-    $employe->cure($animal);
-}
-?>
+        foreach ($animaux as $animal): ?>
+           <div class='animale'>
+             <p><?php  echo  $employe->examinerEnclos($enclos, $animal, $nombreAnimaux);?></p>
+             <p><?php  echo  $employe->feed($animal);?></p>
+             <p><?php  echo  $employe->cure($animal);?></p>
+        </div>
+            <?php endforeach; ?>
+        </div>
     <?php else : ?>
         <p>Enclos non trouvé.</p>
     <?php endif; ?>
+    <script>
+        const btn = document.querySelector('.btn');
+        btn.addEventListener('click', ()=>{
+                location.reload();
+        });
+    </script>
 </body>
 </html>

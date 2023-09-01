@@ -105,13 +105,25 @@ if($animale){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="css/employe.css" />
 </head>
 <body>
+    <header>
+        <h1>Construisez vôtre zoo ! </h1>
+        <div class="retour">
+            <a href="index.php">Retour au Zoo</a>
+        </div>
+    </header>
+    <div class="content">
 <form method="post" action="" enctype="multipart/form-data">
             <label><h3>définir un enclos</h3></label><br />
+            <p>
                 <input type="text" name="largeur" placeholder="rentrer une largeur">
+            </p>
+            <p>
                 <input type="text" name="longueur" placeholder="rentrer une longueur">
+            </p>
                 <select name="getType">
                     <option value="">choisir le type d'enclos</option>
                     <option value="ours">ours</option>
@@ -119,15 +131,25 @@ if($animale){
                     <option value="aquarium">aquarium</option>
                     <option value="voliere">voliere</option>
                 </select>
+            <p>
                 <input type="file" name="images">
+            </p>
+            <p>
                 <input type="submit" value="envoyer">
+            </p>
             </form>
             <!--  //////////  -->
             <form method="post" action="">
             <label><h3>définir un animale</h3></label><br />
+            <p>
                 <input type="text" name="nom" placeholder="rentrer un nom d'animale">
+            </p>
+            <p>
                 <input type="text" name="poids" placeholder="rentrer un poids">
+            </p>
+            <p>
                 <input type="text" name="age" placeholder="rentrer un age">
+            </p>
                 <select name="getType">
                     <option value="">choisir le type d'animale</option>
                     <option value="ours">ours</option>
@@ -135,6 +157,7 @@ if($animale){
                     <option value="poisson">poisson</option>
                     <option value="oiseaux">oiseaux</option>
                 </select>
+                <p>
                 <select name="enclos_id">
                     <option value="">choisir le type d'enclos</option>
                     <option value="1">ours</option>
@@ -142,7 +165,11 @@ if($animale){
                     <option value="3">aquarium</option>
                     <option value="4">voliere</option>
                 </select>
+            </p>
+            <p>
                 <input type="submit" value="envoyer">
+            </p>
             </form>
+</div>
 </body>
 </html>

@@ -1,0 +1,128 @@
+body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    width:100vw;
+}
+header{
+    position:fixed;
+    height:50px;
+    width:100%;
+    margin:0;
+    padding:0;
+    background:rgba(0,0,0,0.2);
+    border-bottom:1px solid white;
+}
+.retour{
+    position:fixed;
+    height:40px;
+    width:130px;
+    top:5px;
+    left:5px;
+    border:1px solid white;
+    border-radius:5px;
+    text-align:center;
+    z-index:10;
+}
+.retour a{
+    display:block;
+    height:40px;
+    width:130px;
+    color:white;
+    text-decoration:none;
+    line-height:40px;
+    border-radius:5px;
+}
+.retour a:hover{
+    background:rgba(0,0,0,0.3); 
+}
+h1{
+    position:fixed;
+    width:100%;
+    color:white;
+    text-align:center;
+    z-index:10;
+}
+.presentation{
+    position:absolute;
+    top:100px;
+    left:5px;
+    width:300px;
+    padding:10px;
+    background:rgba(0,0,0,0.3);
+    border-radius:5px;
+}
+h2{
+    position:relative;
+    color:white;
+    top:10px;
+    font-size:20px;
+    font-weight:bolder;
+    border-bottom:1px solid white;
+}
+ul{
+    margin:10px 0;
+    padding:0;
+    list-style-type:none;
+}
+ul li{
+    color:white;
+}
+p{
+    padding:0;
+    margin:0;
+    color:white;
+}
+.type{
+    position:relative;
+    height:40px;
+    width:100%;
+    top:50px;
+    text-align:center;
+    line-height:40px;
+    background:rgba(0,0,0,0.3);
+}
+.animaux{
+    position:relative;
+    display:flex;
+    flex-wrap:wrap;
+    top:170px;
+    justify-content:center;
+    
+}
+.animale{
+    width:250px;
+    margin:5px 20px;
+    padding:10px;
+    box-sizing:border-box;
+    color:white;
+    background:rgba(0,0,0,0.3);
+    border-radius:5px;
+}
+.animale h3{
+    font-size:20px;
+    font-weight:bolder;
+    border-bottom:1px solid white;
+}
+.btn{
+    position:relative;
+    height:40px;
+    width:70px;
+    left:50%;
+    top:120px;
+    transform:translateX(-50%);
+    background:rgba(0,0,0,0.3);
+    color:white;
+    border:1px solid white;
+}
+.btn:hover{
+    background:rgba(255,255,255,0.5);
+    border:1px solid black;
+}
+.msg{
+    position:fixed;
+    width:300px;
+    top:100px;
+    left:50%;
+    transform:translateX(-50%);
+}

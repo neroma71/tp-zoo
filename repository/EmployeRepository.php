@@ -96,4 +96,14 @@
         return $req->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function deleteAnimalById($animalId)
+{
+        $query = "DELETE FROM animale WHERE 'animale-id' = :animalId"; 
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(":animalId", $animalId, PDO::PARAM_INT);
+        $stmt->execute();
+    return true; 
+    }
 }
+
+
