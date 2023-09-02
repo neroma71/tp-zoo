@@ -114,7 +114,7 @@
             $animale->soins();
             if($animale->getMalade() == 0)
             {
-               echo $animale->getNom()." est malade<br />";
+               echo $animale->getNom()." est malade il fume une clope<br />";
             }
             else
             {
@@ -125,7 +125,7 @@
         public function nettoyer(Enclos $enclos)
         {  
             if($enclos->getEtat() == 0) {
-            echo $this->getNom()." Nettoye de l'enclos !";
+            echo $this->getNom()." nettoye l'enclos !";
             } 
              else 
             {

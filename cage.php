@@ -90,6 +90,7 @@ $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
            <div class='animale'>
              <p><?php  echo  $employe->examinerEnclos($enclos, $animal, $nombreAnimaux);?></p>
              <div class="action">
+                <p><?php  echo  $employe->nettoyer($enclos);?></p>
                 <p><?php  echo  $employe->feed($animal);?></p>
                 <p><?php  echo  $employe->cure($animal);?></p>
             </div>
