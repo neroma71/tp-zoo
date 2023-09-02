@@ -95,7 +95,7 @@
            
             $enclos->entretien();
             if ($enclos->getEtat() == 0) {
-                echo "L'enclos est sale.<br />";
+                echo $animale->getNom()." ".$animale->bouger()." L'enclos est sale.<br />";
             } else 
             {
                 echo "l'enclos est propre <br />";
@@ -104,21 +104,21 @@
             $animale->manger();
             if($animale->getFaim() == 0)
             {
-               echo "l'animale à faim <br />";
+                echo $animale->getNom()." ".$animale->son()." à faim <br />";
             }
             else
             {
-                echo "l'animale à mangé<br />";
+                echo $animale->getNom()." à mangé<br />";
             }
 
             $animale->soins();
             if($animale->getMalade() == 0)
             {
-               echo "l'animale est malade<br />";
+               echo $animale->getNom()." est malade<br />";
             }
             else
             {
-                echo "l'animale est soigné<br />";
+                echo $animale->getNom()." est soigné<br />";
             }
         }
         //----//

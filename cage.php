@@ -44,16 +44,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         }
     } 
 }
-if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $animalIdToDelete = $_GET['id'];
 
-    // Ensuite, appelez votre fonction de suppression avec $animalIdToDelete
-    if ($manager->deleteAnimalById($animalIdToDelete)) {
-        echo "<p class='msg'>L'animal a été supprimé avec succès.</p>";
-    } else {
-        echo "<p class='msg'>Une erreur s'est produite lors de la suppression de l'animal.</p>";
-    }
-}
 
 $enclosList = $manager->getAllEnclos();
 $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
@@ -74,7 +65,7 @@ $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
         <div class="retour">
             <a href="index.php">Retour au Zoo</a>
         </div>
-    <header> 
+</header> 
         <div class="type">  
             <?php if ($enclos) : ?>
                  <p>Type: <?php echo $enclos->getType(); ?>
@@ -87,8 +78,8 @@ $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
             <h2>Animaux dans cet enclos</h2>
             <ul>
                 <?php foreach ($animaux as $animal) : ?>
-                    <li>Nom : <?php echo $animal->getNom(); ?>, Poids : <?php echo $animal->getPoids(); ?>, Âge : <?php echo $animal->getAge(); ?>ans</li>
-                    <a href="cage.php?id=<?php echo $animal->getId(); ?>">supprimer</a>
+                    <li>Nom : <?php echo $animal->getNom(); ?>, Poids : <?php echo $animal->getPoids(); ?>, Âge : <?php echo $animal->getAge(); ?>ans<a href="delete.php?animale_id=<?php echo $animal->getAnimale_id(); ?>&id=<?php echo $enclosId; ?>">supprimer</a>
+</li>
                  <?php endforeach; ?>
             </ul>
             </div>
@@ -98,8 +89,10 @@ $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
         foreach ($animaux as $animal): ?>
            <div class='animale'>
              <p><?php  echo  $employe->examinerEnclos($enclos, $animal, $nombreAnimaux);?></p>
-             <p><?php  echo  $employe->feed($animal);?></p>
-             <p><?php  echo  $employe->cure($animal);?></p>
+             <div class="action">
+                <p><?php  echo  $employe->feed($animal);?></p>
+                <p><?php  echo  $employe->cure($animal);?></p>
+            </div>
         </div>
             <?php endforeach; ?>
         </div>

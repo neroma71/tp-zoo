@@ -98,7 +98,7 @@
 
     public function deleteAnimalById($animalId)
 {
-        $query = "DELETE FROM animale WHERE 'animale-id' = :animalId"; 
+        $query = "DELETE FROM animale WHERE `animale_id` = :animalId"; 
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(":animalId", $animalId, PDO::PARAM_INT);
         $stmt->execute();

@@ -1,7 +1,7 @@
 <?php
     abstract class Animale
     {
-        private int $id;
+        private int $animale_id;
         protected string $getType;
         protected string $nom;
         protected int $poids;
@@ -13,11 +13,31 @@
         public function __construct(array $datas)
         {
             $this->hydrate($datas);
-            if (isset($data['id'])) {
-                $this->id = $data['id'];
+            if (isset($data['animale_id'])) {
+                $this->animale_id = $data['animale_id'];
             }
         }
 
+
+        /**
+         * Get the value of animale_id
+         */ 
+        public function getAnimale_id()
+        {
+                return $this->animale_id;
+        }
+
+        /**
+         * Set the value of animale_id
+         *
+         * @return  self
+         */ 
+        public function setAnimale_id($animale_id)
+        {
+                $this->animale_id = $animale_id;
+
+                return $this;
+        }
         /**
          * Get the value of getType
          */ 
@@ -38,25 +58,7 @@
                 return $this;
         }
 
-        /**
-         * Get the value of id
-         */ 
-        public function getId(): int
-        {
-                return $this->id;
-        }
-
-        /**
-         * Set the value of id
-         *
-         * @return  self
-         */ 
-        public function setId($id)
-        {
-                $this->id = $id;
-
-                return $this;
-        }
+       
         /**
          * Get the value of malade
          */ 
@@ -200,9 +202,9 @@
 
         public function hydrate(array $datas)
         {
-            if(isset($datas["animale-id"]))
+            if(isset($datas["animale_id"]))
             {
-                $this->setId($datas["animale-id"]);
+                $this->setAnimale_id($datas["animale_id"]);
             }
             if(isset($datas["getType"]))
             {

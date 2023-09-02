@@ -13,6 +13,6 @@
             
             public function bouger()
             {
-                return "je remue la queue";
+                return "remue la queue";
             } 
         }

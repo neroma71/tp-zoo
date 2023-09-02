@@ -12,7 +12,7 @@
             }
             public function bouger()
             {
-                return "je tourne en rond";
+                return "tourne en rond";
             }
             public function vagabonder()
             {

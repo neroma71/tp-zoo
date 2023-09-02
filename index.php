@@ -25,9 +25,9 @@ $enclosList = $manager->getAllEnclos();
             <a href="employe.php">commencer à jouer</a>
         </div>
         </header>
-            <div class="row d-flex justify-content-center">
+            <div class="row d-flex mb-5 justify-content-center ">
                  <?php foreach ($enclosList as $enclos) : ?>
-                     <a href="cage.php?id=<?php echo $enclos['id']; ?>" class="col-6 text-center">
+                     <a href="cage.php?id=<?php echo $enclos['id']; ?>" class="col-6 col-sm-6 col-lg-6 mx-3 text-center p-5 space">
                         <h2>Type: <?php echo $enclos['getType']; ?></h2>
                      </a>
                 <?php endforeach; ?>
