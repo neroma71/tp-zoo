@@ -12,8 +12,15 @@
             }
             public function bouger()
             {
-                return "tourne en rond";
+                return "s'ennuie";
             }
-          
-            
+            public function speciale()
+            {
+                return "";
+            }
+            public function salinite()
+            {
+                return "";
+            }
+           
         }

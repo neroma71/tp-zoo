@@ -12,11 +12,19 @@
             }
             public function bouger()
             {
-                return "tourne en rond";
+                return "coule au fond";
             }
             public function nager()
             {
                 return "je nage de hauten bas et de gauche à droite";
+            }
+            public function speciale()
+            {
+                return "profondeur : 10m";
+            }
+            public function salinite()
+            {
+                return "salinité : 17%";
             }
             
         }

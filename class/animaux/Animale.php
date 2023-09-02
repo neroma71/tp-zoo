@@ -238,5 +238,7 @@
         // methodes de base des mammifère
         abstract public function son();
         abstract public function bouger();
+        abstract public function speciale();
+        abstract public function salinite();
 
     }

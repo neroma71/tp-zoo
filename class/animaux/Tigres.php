@@ -8,7 +8,7 @@
 
             public function son()
             {
-                return "groarhhgroahhr";
+                return "grhoarg";
             }
             public function bouger()
             {
@@ -18,6 +18,13 @@
             {
                 return "je me promène dans le zoo";
             }
-            
+            public function speciale()
+            {
+                return "";
+            }
+            public function salinite()
+            {
+                return "";
+            }
         }
    

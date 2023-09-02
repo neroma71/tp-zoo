@@ -92,10 +92,17 @@
             echo "type d'enclos : ".$enclos->getType()."<br />";
             echo "largeur de l'enclos ". $enclos->getLargeur()."<br />";
             echo "longeur de l'enclos ". $enclos->getLongueur()."<br />";
+
+            if(method_exists($animale, 'speciale')){
+                echo $animale->speciale()."<br />";
+            }
+            if(method_exists($animale, 'salinite')){
+                echo $animale->salinite()."<br />";
+            }
            
             $enclos->entretien();
             if ($enclos->getEtat() == 0) {
-                echo $animale->getNom()." ".$animale->bouger()." L'enclos est sale.<br />";
+                echo $animale->getNom()." <span>".$animale->bouger()." </span>L'enclos est sale.<br />";
             } else 
             {
                 echo "l'enclos est propre <br />";
@@ -104,7 +111,7 @@
             $animale->manger();
             if($animale->getFaim() == 0)
             {
-                echo $animale->getNom()." ".$animale->son()." à faim <br />";
+                echo $animale->getNom()." <span> ".$animale->son()." </span> à faim<br />";
             }
             else
             {
@@ -114,7 +121,7 @@
             $animale->soins();
             if($animale->getMalade() == 0)
             {
-               echo $animale->getNom()." est malade il fume une clope<br />";
+               echo $animale->getNom()." <span> ".$animale->son()." </span>est malade il fume une clope<br />";
             }
             else
             {

@@ -59,7 +59,8 @@ $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="css/cage.css">
 </head>
-<body style="background-image: url('<?php echo $enclos->getImages(); ?>'); background-position: top center; background-repeat: no-repeat; background-size: cover;">
+<body>
+<main style="background:url('<?php echo $enclos->getImages(); ?>')center no-repeat; background-size:cover;">
     <header>
         <h1>Détails de l'enclos</h1> 
         <div class="retour">
@@ -100,6 +101,7 @@ $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
     <?php else : ?>
         <p>Enclos non trouvé.</p>
     <?php endif; ?>
+    </main>
     <script>
         const btn = document.querySelector('.btn');
         btn.addEventListener('click', ()=>{

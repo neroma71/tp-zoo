@@ -13,6 +13,14 @@
             
             public function bouger()
             {
-                return "remue la queue";
+                return "tombe de sa branche";
             } 
+            public function speciale()
+            {
+                return "hauteur : 25m";
+            }
+            public function salinite()
+            {
+                return "";
+            }
         }
