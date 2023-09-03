@@ -4,10 +4,32 @@
         private string $nom;
         private int $age;
         private string $sexe;
+        public int $point = 0;
 
         public function __construct(array $datas)
         {
             $this->hydrate($datas);
+            $this->point = 0;
+        }
+
+        /**
+         * Get the value of sexe
+         */ 
+        public function getPoint()
+        {
+                return $this->point;
+        }
+
+        /**
+         * Set the value of sexe
+         *
+         * @return  self
+         */ 
+        public function setPoint($point)
+        {
+                $this->point = $point;
+
+                return $this;
         }
 
         /**
@@ -85,6 +107,11 @@
                 $this->setNom($datas["nom"]);
             } 
         }
+       
+        public function addPoint(){
+            $this->point++; 
+            $_SESSION['employee_points'] = $this->point;
+        }
 
         public function examinerEnclos(Enclos $enclos, Animale $animale)
         {
@@ -99,7 +126,8 @@
             if(method_exists($animale, 'salinite')){
                 echo $animale->salinite()."<br />";
             }
-           
+            $this->addPoint(1);
+            
             $enclos->entretien();
             if ($enclos->getEtat() == 0) {
                 echo $animale->getNom()." <span>".$animale->bouger()." </span>L'enclos est sale.<br />";
@@ -112,6 +140,7 @@
             if($animale->getFaim() == 0)
             {
                 echo $animale->getNom()." <span> ".$animale->son()." </span> à faim<br />";
+                $this->addPoint(1);
             }
             else
             {
@@ -122,10 +151,12 @@
             if($animale->getMalade() == 0)
             {
                echo $animale->getNom()." <span> ".$animale->son()." </span>est malade il fume une clope<br />";
+               $this->addPoint(1);
             }
             else
             {
                 echo $animale->getNom()." est soigné<br />";
+                
             }
         }
         //----//
@@ -133,6 +164,7 @@
         {  
             if($enclos->getEtat() == 0) {
             echo $this->getNom()." nettoye l'enclos !";
+            $this->addPoint(1);
             } 
              else 
             {
@@ -146,6 +178,7 @@
         if($animale->getFaim() == 0)
         {
             echo $this->getNom()." Nourrit l'animale";
+            $this->addPoint(1);
         }
         else
         {
@@ -158,10 +191,11 @@
     if($animale->getMalade() == 0)
     {
         echo $this->getNom()." Soigne l'animale";
+        $this->addPoint(1);
     }
     else
     {
         echo $animale->soins();
     }
-    }
+   }
 }

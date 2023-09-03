@@ -73,20 +73,9 @@
             if($this->count < 6){
                 $this->animals[] = $animals;
                 $this->count ++;
-                echo "ajouter des animaux ";
+                echo "vous pouvez ajouter des animaux !";
             }else{
-                echo " enclos plein";
-            }
-               
-        }
-        public function removeAnimals($animals)
-        {
-            if($this->count > 6){
-                $this->animals[] = $animals;
-                $this->count --;
-                echo " enlever des animaux";
-            }else{
-                echo "enlevé ".$animals->getNom();
+                echo " enclos plein, enlevé ". $animals->getNom();
             }
                
         }

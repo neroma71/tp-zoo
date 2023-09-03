@@ -59,8 +59,8 @@ $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="css/cage.css">
 </head>
-<body>
-<main style="background:url('<?php echo $enclos->getImages(); ?>')center no-repeat; background-size:cover;">
+<body style="background:url('<?php echo $enclos->getImages(); ?>')top center fixed no-repeat; background-size:cover;">
+<main>
     <header>
         <h1>Détails de l'enclos</h1> 
         <div class="retour">
@@ -70,30 +70,40 @@ $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
         <div class="type">  
             <?php if ($enclos) : ?>
                  <p>Type: <?php echo $enclos->getType(); ?>
-                 Largeur: <?php echo $enclos->getLargeur(); ?>
-                Longueur: <?php echo $enclos->getLongueur(); ?>
-                nombre d'animaux dans l'enclos : <?php  echo $nombreAnimaux = count($animaux); ?>
+                    Largeur: <?php echo $enclos->getLargeur(); ?>
+                    Longueur: <?php echo $enclos->getLongueur(); ?>
+                    nombre d'animaux dans l'enclos : <?php  echo $nombreAnimaux = count($animaux); ?>
                 </p>
         </div>
         <div class="presentation">
             <h2>Animaux dans cet enclos</h2>
             <ul>
                 <?php foreach ($animaux as $animal) : ?>
+                   <p><?php $enclos->addAnimals($animal); ?></p>
                     <li>Nom : <?php echo $animal->getNom(); ?>, Poids : <?php echo $animal->getPoids(); ?>, Âge : <?php echo $animal->getAge(); ?>ans<a href="delete.php?animale_id=<?php echo $animal->getAnimale_id(); ?>&id=<?php echo $enclosId; ?>">supprimer</a>
-</li>
+                    </li>
                  <?php endforeach; ?>
             </ul>
             </div>
             <div class="btn">Play</div>
+            <?php
+            if (isset($_SESSION['employee_points'])) {
+            $employeePoints = $_SESSION['employee_points'];
+
+            echo "<p class='point'>votre score est de : $employeePoints </p>";
+            } else {
+            echo "<p class='point'>Points de l'employé : 0</p>";
+            }
+            ?>
         <div class="animaux">
                 <?php
         foreach ($animaux as $animal): ?>
            <div class='animale'>
-             <p><?php  echo  $employe->examinerEnclos($enclos, $animal, $nombreAnimaux);?></p>
+             <p><?php  $employe->examinerEnclos($enclos, $animal);?></p>
              <div class="action">
-                <p><?php  echo  $employe->nettoyer($enclos);?></p>
-                <p><?php  echo  $employe->feed($animal);?></p>
-                <p><?php  echo  $employe->cure($animal);?></p>
+                <p><?php  $employe->nettoyer($enclos);?></p>
+                <p><?php  $employe->feed($animal);?></p>
+                <p><?php  $employe->cure($animal);?></p>
             </div>
         </div>
             <?php endforeach; ?>
@@ -101,6 +111,7 @@ $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
     <?php else : ?>
         <p>Enclos non trouvé.</p>
     <?php endif; ?>
+    <footer>© moi même</footer>
     </main>
     <script>
         const btn = document.querySelector('.btn');

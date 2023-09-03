@@ -124,6 +124,7 @@ if($animale){
             <p>
                 <input type="text" name="longueur" placeholder="rentrer une longueur">
             </p>
+            <p>
                 <select name="getType">
                     <option value="">choisir le type d'enclos</option>
                     <option value="ours">ours</option>
@@ -131,6 +132,7 @@ if($animale){
                     <option value="aquarium">aquarium</option>
                     <option value="voliere">voliere</option>
                 </select>
+            </p>
             <p>
                 <input type="file" name="images">
             </p>
@@ -150,6 +152,7 @@ if($animale){
             <p>
                 <input type="text" name="age" placeholder="rentrer un age">
             </p>
+            <p>
                 <select name="getType">
                     <option value="">choisir le type d'animale</option>
                     <option value="ours">ours</option>
@@ -157,6 +160,7 @@ if($animale){
                     <option value="poisson">poisson</option>
                     <option value="oiseaux">oiseaux</option>
                 </select>
+            </p>
                 <p>
                 <select name="enclos_id">
                     <option value="">choisir le type d'enclos</option>
