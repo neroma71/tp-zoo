@@ -5,6 +5,8 @@
         private int $age;
         private string $sexe;
         public int $point = 0;
+        public bool $zooClean = false;
+        public bool $animalsHealthy = false;
 
         public function __construct(array $datas)
         {
@@ -112,7 +114,6 @@
             $this->point++; 
             $_SESSION['employee_points'] = $this->point;
         }
-
         public function examinerEnclos(Enclos $enclos, Animale $animale)
         {
             echo "<h3>examen de ".$animale->getNom()."</h3>";
@@ -131,6 +132,7 @@
             $enclos->entretien();
             if ($enclos->getEtat() == 0) {
                 echo $animale->getNom()." <span>".$animale->bouger()." </span>L'enclos est sale.<br />";
+             
             } else 
             {
                 echo "l'enclos est propre <br />";
@@ -145,6 +147,7 @@
             else
             {
                 echo $animale->getNom()." à mangé<br />";
+                $this->animalsHealthy = false;
             }
 
             $animale->soins();
@@ -156,7 +159,6 @@
             else
             {
                 echo $animale->getNom()." est soigné<br />";
-                
             }
         }
         //----//
@@ -164,11 +166,13 @@
         {  
             if($enclos->getEtat() == 0) {
             echo $this->getNom()." nettoye l'enclos !";
+            
             $this->addPoint(1);
             } 
              else 
             {
             $enclos->entretien();
+            $this->zooClean = true;
             }
         }
       
@@ -191,11 +195,13 @@
     if($animale->getMalade() == 0)
     {
         echo $this->getNom()." Soigne l'animale";
+        $this->animalsHealthy = false;
         $this->addPoint(1);
     }
     else
     {
         echo $animale->soins();
+        $this->animalsHealthy = true;
     }
    }
 }

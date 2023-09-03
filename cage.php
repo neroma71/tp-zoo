@@ -107,7 +107,11 @@ $employe = new Employe(['nom' => 'John', 'age' => 30, 'sexe' => 'homme']);
             </div>
         </div>
             <?php endforeach; ?>
-        </div>
+            <?php
+            if ($employe->zooClean && $employe->animalsHealthy) {
+         echo "<p class='win'>Gagné ! Les enclos sont propres et les animaux sont en bonne santé.</p>";
+            }
+            ?>
     <?php else : ?>
         <p>Enclos non trouvé.</p>
     <?php endif; ?>
