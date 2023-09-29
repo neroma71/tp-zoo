@@ -147,7 +147,7 @@
             else
             {
                 echo $animale->getNom()." à mangé<br />";
-                $this->animalsHealthy = false;
+                $this->animalsHealthy = true;
             }
 
             $animale->soins();
@@ -183,6 +183,10 @@
         {
             echo $this->getNom()." Nourrit l'animale";
             $this->addPoint(1);
+        }
+        elseif($animale->getFaim() == 1)
+        {
+            $this->animalsHealthy = true;
         }
         else
         {
